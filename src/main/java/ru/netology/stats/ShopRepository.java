@@ -2,10 +2,10 @@ package ru.netology.stats;
 
 public class ShopRepository {
     private Product[] products = new Product[0];
-    private int removeId;
 
     /**
      * Вспомогательный метод для имитации добавления элемента в массив
+     *
      * @param current — массив, в который мы хотим добавить элемент
      * @param product — элемент, который мы хотим добавить
      * @return — возвращает новый массив, который выглядит, как тот, что мы передали,
@@ -22,6 +22,7 @@ public class ShopRepository {
 
     /**
      * Метод добавления товара в репозиторий
+     *
      * @param product — добавляемый товар
      */
     public void add(Product product) {
@@ -35,9 +36,9 @@ public class ShopRepository {
     // Этот способ мы рассматривали в теории в теме про композицию
     public void remove(int id) {
 
-        Product removedProduct = findById(removeId);
-        if (removedProduct == null){
-            throw new NotFoundException(removeId);
+        Product removedProduct = findById(id);
+        if (removedProduct == null) {
+            throw new NotFoundException(id);
         }
 
         Product[] tmp = new Product[products.length - 1];
